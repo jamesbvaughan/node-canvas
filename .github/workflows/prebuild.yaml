@@ -99,8 +99,13 @@ jobs:
       matrix:
         node: [18.12.0, 20.9.0]
         canvas_tag: [] # e.g. "v2.6.1"
-    name: ${{ matrix.canvas_tag}}, Node.js ${{ matrix.node }}, macOS
-    runs-on: macos-latest
+        os:
+          - runner: macos-latest
+            arch: x64
+          - runner: macos-latest-xlarge # GitHub's Apple Silicon runner
+            arch: arm64
+    name: ${{ matrix.canvas_tag}}, Node.js ${{ matrix.node }}, macOS ${{ matrix.os.arch }}
+    runs-on: ${{ matrix.os.runner }}
     env:
       CANVAS_VERSION_TO_BUILD: ${{ matrix.canvas_tag }}
     steps:
