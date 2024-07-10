@@ -179,7 +179,7 @@ jobs:
 
       - name: Test binary
         run: |
-          brew uninstall --force --ignore-dependencies cairo pango jpeg libpng librsvg giflib harfbuzz pixman
+          brew uninstall --force --ignore-dependencies cairo pango librsvg giflib harfbuzz
           npm test
 
       - name: Make bundle

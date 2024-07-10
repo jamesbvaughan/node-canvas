@@ -34,8 +34,8 @@
         '<!@(pkg-config pangocairo --libs)',
         '<!@(pkg-config freetype2 --libs)',
         '<!@(pkg-config librsvg-2.0 --libs)',
-        '<!@(pkg-config libjpeg --libs)',
         '-L/opt/homebrew/lib',
+        '-ljpeg',
         '-lgif'
       ],
       'include_dirs': [
