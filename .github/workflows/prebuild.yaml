@@ -182,6 +182,11 @@ jobs:
           brew uninstall --force --ignore-dependencies cairo pango librsvg giflib harfbuzz
           npm test
 
+      - name: Sign the executable
+        uses: indygreg/apple-code-sign-action@v1
+        with:
+          input_path: build/Release/canvas.node
+
       - name: Make bundle
         id: make_bundle
         run: . prebuild/tarball.sh
